@@ -62,7 +62,7 @@ or it may be something else.
 
 Now run flanneld itself:
 ```sh
-sudo docker -H unix:///var/run/docker-bootstrap.sock run -d --net=host --privileged -v /dev/net:/dev/net ajazam/rpi-flannel:0.3.0
+sudo docker -H unix:///var/run/docker-bootstrap.sock run -d --net=host --privileged -v /dev/net:/dev/net ajazam/rpi-flannel:0.3.1
 ```
 
 The previous command should have printed a really long hash, copy this hash.

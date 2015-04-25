@@ -45,7 +45,7 @@ or it may be something else.
 
 Now run flanneld itself, this call is slightly different from the above, since we point it at the etcd instance on the master.
 ```sh
-sudo docker -H unix:///var/run/docker-bootstrap.sock run -d --net=host --privileged -v /dev/net:/dev/net ajazam/rpi-flannel:0.3.0 /opt/bin/flanneld --etcd-endpoints=http://${MASTER_IP}:4001
+sudo docker -H unix:///var/run/docker-bootstrap.sock run -d --net=host --privileged -v /dev/net:/dev/net ajazam/rpi-flannel:0.3.1 /opt/bin/flanneld --etcd-endpoints=http://${MASTER_IP}:4001
 ```
 
 The previous command should have printed a really long hash, copy this hash.
