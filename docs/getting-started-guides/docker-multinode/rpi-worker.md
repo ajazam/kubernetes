@@ -93,7 +93,7 @@ systemctl start docker
 Again this is similar to the above, but the ```--api_servers``` now points to the master we set up in the beginning.
 
 ```sh
-sudo docker run --net=host -d -v /var/run/docker.sock:/var/run/docker.sock  ajazam/hyperkube:v0.15.0 /hyperkube kubelet --api_servers=http://${MASTER_IP}:8080 --v=2 --address=0.0.0.0 --enable_server --hostname_override=$(hostname -i)
+sudo docker run --net=host -d -v /var/run/docker.sock:/var/run/docker.sock  ajazam/rpi-hyperkube:v0.15.0 /hyperkube kubelet --api_servers=http://${MASTER_IP}:8080 --v=2 --address=0.0.0.0 --enable_server --hostname_override=$(hostname -i)
 ```
 
 #### Run the service proxy

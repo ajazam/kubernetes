@@ -26,13 +26,13 @@ across reboots and failures.
 ### Startup etcd for flannel and the API server to use
 Run:
 ```
-sudo docker -H unix:///var/run/docker-bootstrap.sock run --net=host -d ajazam/etcd:2.0.4 /usr/local/bin/etcd --addr=127.0.0.1:4001 --bind-addr=0.0.0.0:4001 --data-dir=/var/etcd/data
+sudo docker -H unix:///var/run/docker-bootstrap.sock run --net=host -d ajazam/rpi-etcd:2.0.4 /usr/local/bin/etcd --addr=127.0.0.1:4001 --bind-addr=0.0.0.0:4001 --data-dir=/var/etcd/data
 ```
 
 Next, you need to set a CIDR range for flannel.  This CIDR should be chosen to be non-overlapping with any existing network you are using:
 
 ```sh
-sudo docker -H unix:///var/run/docker-bootstrap.sock run --net=host ajazam/etcd:2.0.4 etcdctl set /coreos.com/network/config '{ "Network": "10.1.0.0/16" }'
+sudo docker -H unix:///var/run/docker-bootstrap.sock run --net=host ajazam/rpi-etcd:2.0.4 etcdctl set /coreos.com/network/config '{ "Network": "10.1.0.0/16" }'
 ```
 
 
@@ -62,7 +62,7 @@ or it may be something else.
 
 Now run flanneld itself:
 ```sh
-sudo docker -H unix:///var/run/docker-bootstrap.sock run -d --net=host --privileged -v /dev/net:/dev/net ajazam/flannel:0.3.0
+sudo docker -H unix:///var/run/docker-bootstrap.sock run -d --net=host --privileged -v /dev/net:/dev/net ajazam/rpi-flannel:0.3.0
 ```
 
 The previous command should have printed a really long hash, copy this hash.
