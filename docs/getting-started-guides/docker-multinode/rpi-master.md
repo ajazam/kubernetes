@@ -113,7 +113,7 @@ sudo docker run --net=host -d -v /var/run/docker.sock:/var/run/docker.sock  ajaz
 
 ### Also run the service proxy
 ```sh
-sudo docker run -d --net=host --privileged ajazam/rpi-hyperkube:v0.15.0 /hyperkube proxy --master=http://127.0.0.1:8080 --v=2
+sudo docker run -d --net=host --privileged ajazam/rpi-hyperkube:0.15.0 /hyperkube proxy --master=http://127.0.0.1:8080 --v=2
 ```
 
 ### Test it out
